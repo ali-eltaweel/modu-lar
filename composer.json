@@ -1,0 +1,19 @@
+{
+    "name": "ali-eltaweel/modu-lar",
+    "version": "0.0.0",
+    "description": "Laravel Modular Architecture",
+    "maintainers": [
+        {
+            "name": "Ali M. Kamel",
+            "email": "ali.kamel.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modular\\": "src/"
+        }
+    }
+}
