@@ -1,6 +1,6 @@
 {
     "name": "ali-eltaweel/modu-lar",
-    "version": "0.1.0",
+    "version": "0.3.0",
     "description": "Laravel Modular Architecture",
     "maintainers": [
         {
@@ -10,7 +10,8 @@
     ],
     "require": {
         "php": "^8.2",
-        "ali-eltaweel/dto": "^1.4"
+        "ali-eltaweel/dto": "^1.4",
+        "ali-eltaweel/attr-action": "^1.0"
     },
     "autoload": {
         "psr-4": {
