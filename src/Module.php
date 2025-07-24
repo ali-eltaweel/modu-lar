@@ -11,12 +11,20 @@ use ReflectionClass;
  */
 abstract class Module {
 
+    private readonly Http\Routing\ModuleRoutingProvider $routingProvider;
+
     /**
      * @param TConfig $config
      */
-    public final function __construct(public readonly Config\ModuleConfig $config) {}
+    public final function __construct(public readonly Config\ModuleConfig $config) {
 
-    public function boot(): void {}
+        $this->routingProvider = new Http\Routing\ModuleRoutingProvider(routes: $config->routes);
+    }
+
+    public function boot(): void {
+
+        $this->routingProvider->boot();
+    }
 
     public static function getConfigClass(): string {
 

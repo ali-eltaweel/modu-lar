@@ -19,10 +19,6 @@ final class ModuleServiceProvider extends ServiceProvider {
         foreach (config('modular.app.modules', []) as $moduleName) {
 
             $this->registerModule($moduleName);
-        }
-
-        foreach (config('modular.app.modules', []) as $moduleName) {
-
             $this->registerModuleProviders($moduleName);
         }
     }
