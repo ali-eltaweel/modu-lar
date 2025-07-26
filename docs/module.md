@@ -6,6 +6,7 @@
   - [The module class](#the-module-class)
   - [Specifying the configuration type](#specifying-the-configuration-type)
   - [Registering service providers](#registering-service-providers)
+  - [Registering routes](#registering-routes)
 
 ***
 ***
@@ -50,4 +51,31 @@ class MyModule extends Module {
     ];
   }
 }
+```
+
+***
+
+## Registering routes
+
+In the module's config file, you can specify the route groups that should be registered for the module.
+
+```php
+return [
+
+  'routes' => [
+    [
+      'prefix' => 'my-module',
+      'files' => [
+        base_path('app/Modules/MyModule/routes/web.php')
+      ]
+    ],
+    [
+      'prefix' => 'my-module',
+      'middleware' => ['api'],
+      'files' => [
+        base_path('app/Modules/MyModule/routes/api.php')
+      ]
+    ]
+  ]
+];
 ```
