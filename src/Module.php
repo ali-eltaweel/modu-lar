@@ -21,9 +21,19 @@ abstract class Module {
         $this->routingProvider = new Http\Routing\ModuleRoutingProvider(routes: $config->routes);
     }
 
+    public final function seedDatabase(callable $seed): void {
+
+        $seed($this->getSeeders());
+    }
+
     public function boot(): void {
 
         $this->routingProvider->boot();
+    }
+
+    protected function getSeeders(): array {
+
+        return $this->config->database->seeders->toArray();
     }
 
     public static function getConfigClass(): string {
