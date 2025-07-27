@@ -4,9 +4,14 @@ return [
 
     'module' => Modular\App\AppModule::class,
 
-    'routes' => [
+    'routes' => [],
+
+    'console' => [
+        
+        'commandsDirs' => [],
+        
+        'schedule' => null
     ],
 
-    'modules' => [
-    ]
+    'modules' => []
 ];
