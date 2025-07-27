@@ -7,6 +7,7 @@
   - [Specifying the configuration type](#specifying-the-configuration-type)
   - [Registering service providers](#registering-service-providers)
   - [Registering routes](#registering-routes)
+  - [Console commands and scheduling](#console-commands-and-scheduling)
 
 ***
 ***
@@ -79,3 +80,18 @@ return [
   ]
 ];
 ```
+
+***
+
+## Console commands and scheduling
+
+```php
+return [
+
+  'console' => [
+    'commandsDirs' => [],
+    'schedule' => 'path/to/schedule.php'
+  ]
+];
+```
+
