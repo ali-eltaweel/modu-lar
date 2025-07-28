@@ -78,6 +78,10 @@ final class ModuleServiceProvider extends ServiceProvider {
 
     private function bootModule(string $name): void {
 
-        $this->app->make(config("modular.$name.module"))->boot();
+        $module = $this->app->make(config("modular.$name.module"));
+        
+        $module->boot();
+
+        $module->migrateDatabase(fn (array $dirs) => $this->loadMigrationsFrom($dirs));
     }
 }

@@ -4,6 +4,8 @@ return [
 
     'module' => Modular\App\AppModule::class,
 
+    'modules' => [],
+
     'routes' => [],
 
     'console' => [
@@ -13,5 +15,10 @@ return [
         'schedule' => null
     ],
 
-    'modules' => []
+    'database' => [
+
+        'migrationsDirs' => [],
+        
+        'seeders' => []
+    ]
 ];

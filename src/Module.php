@@ -26,9 +26,19 @@ abstract class Module {
         $seed($this->getSeeders());
     }
 
+    public final function migrateDatabase(callable $loadMigrationsFromDirs): void {
+        
+        $loadMigrationsFromDirs($this->getMigrationDirs());
+    }
+
     public function boot(): void {
 
         $this->routingProvider->boot();
+    }
+
+    protected function getMigrationDirs(): array {
+
+        return $this->config->database->migrationsDirs->toArray();
     }
 
     protected function getSeeders(): array {
