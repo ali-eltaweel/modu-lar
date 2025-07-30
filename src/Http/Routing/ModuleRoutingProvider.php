@@ -8,11 +8,9 @@ use Illuminate\Support\Facades\Route;
 
 final class ModuleRoutingProvider {
 
-    public final function __construct(private readonly ModuleRoutesConfig $routes) {}
+    public final function boot(ModuleRoutesConfig $routes): void {
 
-    public function boot(): void {
-
-        foreach ($this->routes as $route) {
+        foreach ($routes as $route) {
 
             $this->registerRoute($route);
         }

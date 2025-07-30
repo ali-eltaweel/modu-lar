@@ -18,7 +18,7 @@ abstract class Module {
      */
     public final function __construct(public readonly Config\ModuleConfig $config) {
 
-        $this->routingProvider = new Http\Routing\ModuleRoutingProvider(routes: $config->routes);
+        $this->routingProvider = new Http\Routing\ModuleRoutingProvider();
     }
 
     public final function seedDatabase(callable $seed): void {
@@ -33,7 +33,15 @@ abstract class Module {
 
     public function boot(): void {
 
-        $this->routingProvider->boot();
+        $this->routingProvider->boot(
+            
+            Config\Routes\ModuleRoutesConfig::fromArray($this->getRoutesGroups())
+        );
+    }
+
+    protected function getRoutesGroups(): array {
+
+        return $this->config->routes->toArray();
     }
 
     protected function getMigrationDirs(): array {

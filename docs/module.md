@@ -4,10 +4,10 @@
 
 - [Modu-lar - Module Definition Guide](#modu-lar---module-definition-guide)
   - [The module class](#the-module-class)
-  - [Specifying the configuration type](#specifying-the-configuration-type)
   - [Registering service providers](#registering-service-providers)
   - [Registering routes](#registering-routes)
   - [Console commands and scheduling](#console-commands-and-scheduling)
+  - [Database migrations \& seeders](#database-migrations--seeders)
 
 ***
 ***
@@ -18,23 +18,6 @@
 use Modular\Module;
 
 class MyModule extends Module {
-}
-```
-
-***
-
-## Specifying the configuration type
-
-```php
-/**
- * @extends Module<Config\MyModuleConfig>
- */
-class MyModule extends Module {
-    
-  public static function getConfigClass(): string {
-  
-    return Config\MyModuleConfig::class;
-  }
 }
 ```
 
@@ -91,6 +74,19 @@ return [
   'console' => [
     'commandsDirs' => [],
     'schedule' => 'path/to/schedule.php'
+  ]
+];
+```
+
+***
+
+## Database migrations & seeders
+
+```php
+return [
+  'database' => [
+    'seeders' => [],
+    'migrationsDirs' => []
   ]
 ];
 ```
