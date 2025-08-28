@@ -14,7 +14,7 @@ final class ModuleServiceProvider extends ServiceProvider {
     public final function register() {
 
         $this->registerModule('app', AppModule::class);
-        $this->app->bind('app-module', AppModule::class);
+        $this->app->bind('app-module', config("modular.app.module"));
 
         foreach (config('modular.app.modules', []) as $moduleName) {
 
@@ -40,9 +40,14 @@ final class ModuleServiceProvider extends ServiceProvider {
     private function registerModule(string $name, string $moduleClass = Module::class): void {
 
         /**
-         * @var string $module
+         * @var ?string $module
          */
         $module = config("modular.$name.module");
+
+        if (is_null($module)) {
+
+            return;
+        }
 
         if (!is_a($module, $moduleClass, true)) {
 
