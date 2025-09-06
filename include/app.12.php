@@ -12,9 +12,14 @@ return function(string $basePath) {
                       ->create();
 
     $app->singleton(
-        \Illuminate\Contracts\Console\Kernel::class,
-        \Modular\Console\Kernel::class
+        Illuminate\Contracts\Console\Kernel::class,
+        Modular\Console\Kernel::class
     );
+
+    $app->singleton(
+    Illuminate\Contracts\Debug\ExceptionHandler::class,
+    Modular\Exceptions\Handler::class
+);
 
     return $app;
 };

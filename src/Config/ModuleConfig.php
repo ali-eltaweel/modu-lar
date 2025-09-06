@@ -9,6 +9,7 @@ use DTO\DataTransferObject;
  * @property-read Routes\ModuleRoutesConfig $routes
  * @property-read Console\ConsoleModuleConfig $console
  * @property-read Database\ModuleDatabaseConfig $database
+ * @property-read Exceptions\ModuleExceptionsConfiguration $exceptions
  */
 class ModuleConfig extends DataTransferObject {
 
@@ -17,7 +18,8 @@ class ModuleConfig extends DataTransferObject {
         string $module,
         Routes\ModuleRoutesConfig $routes,
         Console\ConsoleModuleConfig $console,
-        Database\ModuleDatabaseConfig $database
+        Database\ModuleDatabaseConfig $database,
+        Exceptions\ModuleExceptionsConfiguration $exceptions
     ) {
 
         parent::__construct(func_get_args());
